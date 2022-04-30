@@ -22,7 +22,15 @@ import graphviz
 Name:       Antonio Diez
 Email:      antonio.diezaguilar90@myhunter.cuny.edu
 Resources:  Lecture slides
-            https://scikit-learn.org/
+            https://towardsdatascience.com/understanding-feature-engineering-part-2-categorical-data-f54324193e63
+            https://python-visualization.github.io/folium/quickstart.html#Markers
+            https://deparkes.co.uk/2016/06/24/folium-marker-clusters/
+            https://www.dataquest.io/blog/how-to-plot-a-bar-graph-matplotlib/
+            https://analyticsindiamag.com/complete-guide-to-handling-categorical-data-using-scikit-learn/
+            https://scikit-learn.org/ sklearn.model_selection.train_test_split
+            https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html
+            https://scikit-learn.org/stable/modules/  sklearn.tree.export_graphviz
+            https://mljar.com/blog/visualize-decision-tree/
 Title:      My project
 URL:        https://github.com/adiezag/Data-Science
 """
