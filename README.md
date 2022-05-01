@@ -53,7 +53,7 @@ The next figure is a cloropeth map, a type of statistical thematic map that uses
 
 ![Choropleth map](doc/Choropleth_map.png)
 
-Click on the [link](https://adiezag.github.io/Data-Science/)to see the interactive choropleth map.
+Click on the [link](https://adiezag.github.io/Data-Science/) to see the interactive choropleth map.
 
 
 ## Distribution of borough variable
