@@ -78,7 +78,7 @@ Additionally, the following two graphs show the percentage of victims per race, 
 <h4 align = "center"> Fig. 2 - Distribution plot.  Percentage of victim's race between 2006 - 2000.</h4>
 
 
-<br><br/>
+
 ![Stacked bar plot](doc/proportion.png)
 <h4 align = "center"> Fig. 3 - Stacked bar plot. Fatal and non-fatal events per year.</h4>
 <br><br/>
