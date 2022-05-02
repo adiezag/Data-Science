@@ -1,25 +1,24 @@
-# Data-Science
+# Data Science Project
 
-# Project
-
+<h1 align = "center">
 Gun violence in NYC
+</h1>
 
 # Introduction:
-The article 3 of the universal declaration of human rights states that everyone has the right to life, liberty and the security of person. Neverthless, this fundamental right is threatend by gun violence, a multifaceted problem that affects communities all over the country. This time, we will focus on gun violence in New York City and the victim's race.
+The article 3 of the universal declaration of human rights states that everyone has the right, liberty and security of person. Neverthless, this fundamental right is threatened by gun violence, a multifaceted problem that affects communities all over the country. This time, we will focus on gun violence in New York City.
 
 
 # Objective:
-As stated before, communities all over the country are being affected by gun violence; however, its impact hits harder to some people than others. The purpose of this project is to visualize the distribution of the categorical variable, victim's race, here in New York.
+As stated before, communities all over the country are being affected by gun violence; however, its impact affects people in different proportions. The purpose of this project is to visualize the distribution of the categorical variable, victim's race, here in New York.
 
 # Background information:
 
-The used dataset in this project comes from / was obtained from the NYC Open Data website, called NYPD Shooting Incident Data (Historic) that lists every shooting incident occurred in NYC going back to 2006 through the end of year 2020. Each record includes information about the location and time occurrence of the event, and also information related to the suspect and victim demographics. 
+The used dataset in this project was obtained from the NYC Open Data website, called NYPD Shooting Incident Data (Historic) that lists every shooting incident occurred in NYC going back to 2006 through the end of year 2020. Each record includes information about the location and time occurrence of the event, and also information related to the suspect and victim demographics. 
 In addition, a geojson file that contains the zip code boundary coordinates was obtained from BetaNYC in order to create choroplet map to visualize the number of victims per race in each zip code.
 
-
-Dataset sources:
+Datasets sources:
 1. NYC Open Data: csv file 
-2. BetaNYC: geoJson file
+2. BetaNYC: geojson file
 
 # Method:
 For this project, I created a program in Python that along with some libraries allowed me to manage the data and generate graphs that convey the information contained in the dataset so that it can be better understood.
@@ -45,29 +44,33 @@ import graphviz
 # Exploratory data analysis
 
 The program cleans and filter the data to generate a stacked bar plot. The following graph shows the behavior of the categorical variable called VIC_RACE, victim's race description, and the amount of victims of a shooting event per race between the years 2006 - 2020. It is noticeable how black people has been disproportionately impacted by gun violence over time.
-
-
-## Stacked bar plot - Victim's race per year
+<br><br/>
 
 ![Stacked bar plot](doc/n_shooting_events.png)
+
+<h4 align = "center"> Fig. 1 - Stacked bar plot - Victim's race per year</h4>
 
 
 Additionally, the following two graphs show the percentage of victims per race, and the proportion of the amount of the total shooting events that ended up in a fatality per year, respectively, in the same period of time (2006 - 2020)
  
-## Distribution plot - Percentage of victim's race over time
+<br><br/>
 
 ![Distribution plot](doc/distribution_vic_race.png)
-## Stacked bar plot - Fatal and non-fatal events per year
+<h4 align = "center"> Fig. 2 - Distribution plot.  Percentage of victim's race between 2006 - 2000.</h4>
 
+
+<br><br/>
 ![Stacked bar plot](doc/proportion.png)
-
+<h4 align = "center"> Fig. 3 - Stacked bar plot. Fatal and non-fatal events per year.</h4>
 
 # Cloropleth map
 The next figure is a cloropeth map, a type of statistical thematic map that uses the intensisty of colors to be in tune with an aggregate summary of a geographic characteristic. In this case, the geographic characteristic is the number of victims of shooting events. The intensity of color red shows us how the number of victims change from place to place, being the locations in Brooklyn and Bronx the ones where the highest number of shooting events have taken place. Markers have been added to the map to list the number of victims per race in each zip code.
 
-## Cloropeth map - Shooting events in NYC
+<br></br>
 
 ![Choropleth map](doc/Choropleth_map.PNG)
+<h4 align = "center"> Fig. 4 - Choropleth map. Shooting events in NYC.</h4>
+
 
 Click on the [link](https://adiezag.github.io/Data-Science/doc/my_map.html) to see the interactive choropleth map.
 
@@ -75,15 +78,22 @@ Click on the [link](https://adiezag.github.io/Data-Science/doc/my_map.html) to s
 ## Distribution of borough variable
 The following figure exhibits the percentage of shooting events per borough.
 
+<br></br>
+
 ![Boro distribution](doc/distribution_borough.png)
+<h4 align = "center"> Fig. 5 - Distribution of BOROUGH variable.</h4>
+
+<br></br>
 
 # Model inference
 This dataset is made up of some categorical variables, such as, borough, victim's sex, race, and age group, and latitude and longitude which has been converted to its corresponding zip code. A method to convert the categorical data into indicator variables increases the size of the dataset. Now that we have a larger dataset, we could create a machine learning model that will predict the output of a variable. The categorical variable that will be predicted in this project is called VIC_RACE, victim's race description. The program includes a machine learning library called Scikit-learn that will help us create the machine learning model. Since we are dealing with categorical data, I chose the Decision Tree Classifier. Specific methods split the data into train and test subsets so the model can be evalutated. 
 This is a  visualization of the decision tree:
-## Decision tree classifier
-![Decision tree](doc/decision_tree.png)
 
-The program also computes the accuracy score, which is a metric for evaluating the decision tree model. After running the program, it prints out: 
+<br></br>
+![Decision tree](doc/decision_tree.png)
+<h4 align = "center"> Fig. 6 - Decision tree.</h4>
+
+The program computes the accuracy score, which is a metric for evaluating the decision tree model. After running the program, it prints out: 
 
 \>\>The accuracy score of the Decision Tree model is:  0.71058
 
