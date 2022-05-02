@@ -17,14 +17,30 @@ The used dataset in this project comes from / was obtained from the NYC Open Dat
 In addition, a geojson file that contains the zip code boundary coordinates was obtained from BetaNYC in order to create choroplet map to visualize the number of victims per race in each zip code.
 
 
-Sources:
-NYC Open Data: csv file 
-BetaNYC: geoJson file
+Dataset sources:
+1. NYC Open Data: csv file 
+2. BetaNYC: geoJson file
 
 # Method:
 For this project, I created a program in Python that along with some libraries allowed me to manage the data and generate graphs that convey the information contained in the dataset so that it can be better understood.
 
-![Code](doc/code_python_libraries.png)
+```python
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import folium
+from folium.plugins import MarkerCluster
+from geopy.geocoders import Nominatim
+import pgeocode
+from datetime import datetime
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
+from sklearn.metrics import accuracy_score
+from sklearn import preprocessing, tree
+from dtreeviz.trees import dtreeviz
+import graphviz
+```
 
 # Exploratory data analysis
 
@@ -51,9 +67,9 @@ The next figure is a cloropeth map, a type of statistical thematic map that uses
 
 ## Cloropeth map - Shooting events in NYC
 
-![Choropleth map](doc/Choropleth_map.png)
+![Choropleth map](doc/Choropleth_map.PNG)
 
-Click on the [link](https://adiezag.github.io/Data-Science/) to see the interactive choropleth map.
+Click on the [link](https://adiezag.github.io/Data-Science/doc/my_map.html) to see the interactive choropleth map.
 
 
 ## Distribution of borough variable
@@ -72,32 +88,27 @@ The program also computes the accuracy score, which is a metric for evaluating t
 \>\>The accuracy score of the Decision Tree model is:  0.71058
 
 # Conclusion:
-The program generates graphs that let the user easily identify which race have been more impacted by gun violence and where the majority of shooting events have taken place.
-71.6% of the people, victims of shooting events, are black.
-41.43% of the shooting events have taken place in Brooklyn and 28.23% in the Bronx.
-The majority of shooting events have taken place in Band the Bronx.
-By the intensity of color red, the choroplet map highlights the features of the data. The highest number of victims correspond to the zip code 11212 in Brooklyn, and lists the people affected per race between 2006 and 2020
-AMERICAN INDIAN / ALASKAN NATIVE: 0
-ASIAN / PACIFIC ISLANDER: 3
-BLACK: 1017
-BLACK HISPANIC: 45
-UNKNOWN: 3
-WHITE: 4
-WHITE HISPANIC: 39
-The accuracy score for the decision tree model is 0.71. It might suggests that the chosen model was not the right one, or the size of the dataset is not adequate for this model.
-
-
-
- and being the location given by the zip code and the victim's race description.
+1. The program generates graphs that let the user easily identify which race have been more impacted by gun violence and where the majority of shooting events have taken place.
+2. 71.6% of the people, victims of shooting events, are black.
+3. 41.43% of the shooting events have taken place in Brooklyn and 28.23% in the Bronx.
+4. The majority of shooting events have taken place in Band the Bronx.
+5. By the intensity of color red, the choroplet map highlights the features of the data. The highest number of victims correspond to the zip code 11212 in Brooklyn, and lists the people affected per race between 2006 and 2020
+    - AMERICAN INDIAN / ALASKAN NATIVE: 0
+    - ASIAN / PACIFIC ISLANDER: 3
+    - BLACK: 1017
+    - BLACK HISPANIC: 45
+    - UNKNOWN: 3
+    - WHITE: 4
+    - WHITE HISPANIC: 39
+6. The accuracy score for the decision tree model is 0.71. It might suggests that the chosen model was not the right one, or the size of the dataset is not adequate for this model.
 
 # Resources:
-https://towardsdatascience.com/understanding-feature-engineering-part-2-categorical-data-f54324193e63
-https://python-visualization.github.io/folium/quickstart.html#Markers
-https://deparkes.co.uk/2016/06/24/folium-marker-clusters/
-https://www.dataquest.io/blog/how-to-plot-a-bar-graph-matplotlib/
-https://analyticsindiamag.com/complete-guide-to-handling-categorical-data-using-scikit-learn/
-https://scikit-learn.org/ sklearn.model_selection.train_test_split
-https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html
-https://scikit-learn.org/stable/modules/  sklearn.tree.export_graphviz
-https://mljar.com/blog/visualize-decision-tree/
-
+- https://towardsdatascience.com/understanding-feature-engineering-part-2-categorical-data-f54324193e63
+- https://python-visualization.github.io/folium/quickstart.html#Markers
+- https://deparkes.co.uk/2016/06/24/folium-marker-clusters/
+- https://www.dataquest.io/blog/how-to-plot-a-bar-graph-matplotlib/
+- https://analyticsindiamag.com/complete-guide-to-handling-categorical-data-using-scikit-learn/
+- https://scikit-learn.org/     sklearn.model_selection.train_test_split
+- https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html
+- https://scikit-learn.org/stable/modules/      sklearn.tree.export_graphviz
+- https://mljar.com/blog/visualize-decision-tree/
