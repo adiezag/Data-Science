@@ -11,16 +11,15 @@ The article 3 of the universal declaration of human rights states that everyone 
 # Objective:
 As stated before, communities all over the country are being affected by gun violence; however, its impact affects people in different proportions. The purpose of this project is to visualize the distribution of the categorical variable, victim's race, here in New York.
 
-# Background information:
 
+# Method:
 The used dataset in this project was obtained from the NYC Open Data website, called NYPD Shooting Incident Data (Historic) that lists every shooting incident occurred in NYC going back to 2006 through the end of year 2020. Each record includes information about the location and time occurrence of the event, and also information related to the suspect and victim demographics. 
 In addition, a geojson file that contains the zip code boundary coordinates was obtained from BetaNYC in order to create choroplet map to visualize the number of victims per race in each zip code.
 
 Datasets sources:
-1. NYC Open Data: csv file 
-2. BetaNYC: geojson file
+1. NYC Open Data: https://data.cityofnewyork.us/Public-Safety/NYPD-Shooting-Incident-Data-Historic-/833y-fsy8
+2. BetaNYC: https://data.beta.nyc/dataset/nyc-zip-code-tabulation-areas/resource/6df127b1-6d04-4bb7-b983-07402a2c3f90?inner_span=True
 
-# Method:
 For this project, I created a program in Python that along with some libraries allowed me to manage the data and generate graphs that convey the information contained in the dataset so that it can be better understood.
 
 ```python
@@ -43,7 +42,7 @@ import graphviz
 
 # Exploratory data analysis
 
-The program cleans and filter the data to generate a stacked bar plot. The following graph shows the behavior of the categorical variable called VIC_RACE, victim's race description, and the amount of victims of a shooting event per race between the years 2006 - 2020. It is noticeable how black people has been disproportionately impacted by gun violence over time.
+The program cleans and filter the data to generate a stacked bar plot. The following graph shows the behavior of the categorical variable called VIC_RACE, victim's race description, and the amount of victims of a shooting event between the years 2006 - 2020. In figure 1, it is noticeable how black people has been disproportionately impacted by gun violence over time.
 
 ```python
 def stacked_bar_plot(df):
@@ -70,13 +69,11 @@ def stacked_bar_plot(df):
 <h4 align = "center"> Fig. 1 - Stacked bar plot - Victim's race per year</h4>
 
 
-Additionally, the following two graphs show the percentage of victims per race, and the proportion of the amount of the total shooting events that ended up in a fatality per year, respectively, in the same period of time (2006 - 2020)
+Additionally, the following two graphs show the percentage of victims per race, and the proportion of the amount of the total shooting events that ended up in a fatality per year, respectively.
  
-<br><br/>
 
 ![Distribution plot](doc/distribution_vic_race.png)
 <h4 align = "center"> Fig. 2 - Distribution plot.  Percentage of victim's race between 2006 - 2000.</h4>
-
 
 
 ![Stacked bar plot](doc/proportion.png)
@@ -84,7 +81,7 @@ Additionally, the following two graphs show the percentage of victims per race, 
 <br><br/>
 
 # Cloropleth map
-The next figure is a cloropeth map, a type of statistical thematic map that uses the intensisty of colors to be in tune with an aggregate summary of a geographic characteristic. In this case, the geographic characteristic is the number of victims of shooting events. The intensity of color red shows us how the number of victims change from place to place, being the locations in Brooklyn and Bronx the ones where the highest number of shooting events have taken place. Markers have been added to the map to list the number of victims per race in each zip code.
+The next figure is a cloropeth map, a type of statistical thematic map that uses the intensisty of color to correspond with an aggregate summary of a geographic characteristic. In this case, the geographic characteristic is the number of victims of shooting events. The intensity of color red shows us how the number of victims change from place to place, being the locations in Brooklyn and Bronx the ones where the highest number of shooting events have taken place. Markers have been added to the map to list the number of victims per race in each zip code.
 
 ```python
 def generate_choropleth_map(df, n_df, geodata="nyc_.geojson"):
@@ -137,10 +134,7 @@ def generate_choropleth_map(df, n_df, geodata="nyc_.geojson"):
 
 Click on the [link](https://adiezag.github.io/Data-Science/doc/my_map.html) to see the interactive choropleth map.
 
-
 The following figure exhibits the percentage of shooting events per borough.
-
-<br></br>
 
 ![Boro distribution](doc/distribution_borough.png)
 <h4 align = "center"> Fig. 5 - Distribution of BOROUGH variable.</h4>
@@ -148,7 +142,7 @@ The following figure exhibits the percentage of shooting events per borough.
 <br></br>
 
 # Model inference
-This dataset is made up of some categorical variables, such as, borough, victim's sex, race, and age group, and latitude and longitude which has been converted to its corresponding zip code. A method to convert the categorical data into indicator variables increases the size of the dataset. Now that we have a larger dataset, we could create a machine learning model that will predict the output of a variable. The categorical variable that will be predicted in this project is called VIC_RACE, victim's race description. The program includes a machine learning library called Scikit-learn that will help us create the machine learning model. Since we are dealing with categorical data, I chose the Decision Tree Classifier. Specific methods split the data into train and test subsets so the model can be evalutated. 
+This dataset is made up of some categorical variables, such as, borough, victim's sex, race, and age group, and latitude and longitude which has been converted to its corresponding zip code. A method called get_dummies() was used to convert the categorical data into indicator variables in order to increase the size of the dataset . Now that we have a larger dataset, we could create a machine learning model that will predict the output of a variable. The categorical variable that will be predicted in this project is called VIC_RACE, victim's race description. The program includes a machine learning library called Scikit-learn that will help us create the machine learning model. Since we are dealing with categorical data, I chose the Decision Tree Classifier. A method called  train_test_split() splits the data into train and test subsets so the model can be evalutated. 
 This is a  visualization of the decision tree:
 
 ``` python
@@ -191,8 +185,7 @@ After running the program, the computed score variable is:
 1. The program generates graphs that let the user easily identify which race have been more impacted by gun violence and where the majority of shooting events have taken place.
 2. 71.6% of the people, victims of shooting events, are black.
 3. 41.43% of the shooting events have taken place in Brooklyn and 28.23% in the Bronx.
-4. The majority of shooting events have taken place in Band the Bronx.
-5. By the intensity of color red, the choroplet map highlights the features of the data. The highest number of victims correspond to the zip code 11212 in Brooklyn, and lists the people affected per race between 2006 and 2020
+4. By the intensity of color red, the choroplet map highlights the features of the data. The highest number of victims correspond to the zip code 11212 in Brooklyn, and lists the affected people between 2006 and 2020 per race:
     - AMERICAN INDIAN / ALASKAN NATIVE: 0
     - ASIAN / PACIFIC ISLANDER: 3
     - BLACK: 1017
@@ -200,12 +193,14 @@ After running the program, the computed score variable is:
     - UNKNOWN: 3
     - WHITE: 4
     - WHITE HISPANIC: 39
-6. The accuracy score for the decision tree model is 0.71. It might suggests that the chosen model was not the right one, or the size of the dataset is not adequate for this model.
+5. The accuracy score for the decision tree model is 0.71. It might suggests that the chosen model was not the right one, or the size of the dataset is not adequate for this model.
 
 # Resources:
 - https://towardsdatascience.com/understanding-feature-engineering-part-2-categorical-data-f54324193e63
+- https://data.cityofnewyork.us/Public-Safety/NYPD-Shooting-Incident-Data-Historic-/833y-fsy8
 - https://python-visualization.github.io/folium/quickstart.html#Markers
 - https://deparkes.co.uk/2016/06/24/folium-marker-clusters/
+https://data.beta.nyc/dataset/nyc-zip-code-tabulation-areas/resource/6df127b1-6d04-4bb7-b983-07402a2c3f90?inner_span=True
 - https://www.dataquest.io/blog/how-to-plot-a-bar-graph-matplotlib/
 - https://analyticsindiamag.com/complete-guide-to-handling-categorical-data-using-scikit-learn/
 - https://scikit-learn.org/     sklearn.model_selection.train_test_split
