@@ -44,7 +44,6 @@ import graphviz
 # Exploratory data analysis
 
 The program cleans and filter the data to generate a stacked bar plot. The following graph shows the behavior of the categorical variable called VIC_RACE, victim's race description, and the amount of victims of a shooting event per race between the years 2006 - 2020. It is noticeable how black people has been disproportionately impacted by gun violence over time.
-<br><br/>
 
 ```python
 def stacked_bar_plot(df):
@@ -82,10 +81,10 @@ Additionally, the following two graphs show the percentage of victims per race, 
 <br><br/>
 ![Stacked bar plot](doc/proportion.png)
 <h4 align = "center"> Fig. 3 - Stacked bar plot. Fatal and non-fatal events per year.</h4>
+<br><br/>
 
 # Cloropleth map
 The next figure is a cloropeth map, a type of statistical thematic map that uses the intensisty of colors to be in tune with an aggregate summary of a geographic characteristic. In this case, the geographic characteristic is the number of victims of shooting events. The intensity of color red shows us how the number of victims change from place to place, being the locations in Brooklyn and Bronx the ones where the highest number of shooting events have taken place. Markers have been added to the map to list the number of victims per race in each zip code.
-
 
 ```python
 def generate_choropleth_map(df, n_df, geodata="nyc_.geojson"):
@@ -139,7 +138,6 @@ def generate_choropleth_map(df, n_df, geodata="nyc_.geojson"):
 Click on the [link](https://adiezag.github.io/Data-Science/doc/my_map.html) to see the interactive choropleth map.
 
 
-## Distribution of borough variable
 The following figure exhibits the percentage of shooting events per borough.
 
 <br></br>
@@ -171,7 +169,6 @@ def dtreeviz_visualization(dataframe):
     return d_tree_viz
 ```
 
-<br></br>
 ![Decision tree](doc/decision_tree.png)
 <h4 align = "center"> Fig. 6 - Decision tree.</h4>
 
